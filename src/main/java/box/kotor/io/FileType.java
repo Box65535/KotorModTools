@@ -49,7 +49,7 @@ public enum FileType {
     NDB(2064, BINARY),
     PTM(2065, GFF),
     PTT(2066, GFF),
-    UNKNOWN(3003, BINARY),
+    PTH(3003, BINARY),  // TODO This wasn't in the documentation
     ;
     
     private final short resType;

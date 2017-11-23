@@ -15,7 +15,9 @@ public class RimFile implements KotorFile, Iterable<PackedFile> {
     
     @Override
     public void read(byte[] bytes) {
-    
+        
+        packedFiles.clear();
+        
         KotorDataInput in = new KotorDataInput(bytes);
     
         if (!in.readString(8).equals("RIM V1.0"))

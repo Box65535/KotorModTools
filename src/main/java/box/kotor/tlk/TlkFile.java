@@ -78,13 +78,14 @@ public class TlkFile implements KotorFile, Iterable<TlkString> {
         return index;
     }
     
-    public void remove(int index) {
+    public TlkString remove(int index) {
         TlkString string = strings.remove(index);
         int newIndex = strings.indexOf(string);
         if (newIndex == -1)
             indeces.remove(string);
         else
             indeces.put(string, newIndex);
+        return string;
     }
     
     public int find(TlkString string) {

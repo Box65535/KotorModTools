@@ -15,7 +15,7 @@ public class RimTest {
         TlkFile tlkFile = new TlkFile();
         tlkFile.read("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Knights of the Old Republic II\\dialog.tlk");
         RimFile rimFile = new RimFile();
-        rimFile.read("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Knights of the Old Republic II\\Modules\\352NAR_s.rim");
+        rimFile.read("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Knights of the Old Republic II\\Modules\\233TEL_s.rim");
         
         surveyEnemies(rimFile, tlkFile);
     }
@@ -34,6 +34,7 @@ public class RimTest {
                 System.out.println(gffFile.get("ScriptSpawn"));
                 System.out.println(gffFile.get("ChallengeRating"));
                 System.out.println(gffFile.getList("Equip_ItemList"));
+                System.out.println(gffFile.getList("ItemList"));
                 System.out.println();
             }
         }
