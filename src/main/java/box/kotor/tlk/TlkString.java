@@ -1,10 +1,17 @@
 package box.kotor.tlk;
 
+<<<<<<< HEAD
 import box.kotor.io.KotorDataInput;
 import box.kotor.io.KotorDataOutput;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+=======
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.Reader;
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
 
 /**
  * Created on 10/29/2017.
@@ -13,6 +20,7 @@ public class TlkString {
     
     private final String text;
     private final String soundRef;
+<<<<<<< HEAD
     private final float soundLength;
     
     public TlkString(String text) {
@@ -44,6 +52,24 @@ public class TlkString {
         in.setPosition(entryOffset + stringOffset);
         this.text = in.readString(stringSize);
         in.setPosition(pos);
+=======
+    
+    public TlkString(String text) {
+        this.text = text;
+        this.soundRef = null;
+    }
+    
+    public TlkString(String text, String soundRef) {
+        this.text = text;
+        this.soundRef = soundRef;
+    }
+    
+    TlkString(BufferedReader reader) throws IOException {
+        this.text = null;
+        this.soundRef = null;
+        for (int i = 0; i < 1000; i++)
+            System.out.println(reader.readLine());
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
     }
     
     public String getText() {
@@ -54,6 +80,7 @@ public class TlkString {
         return soundRef;
     }
     
+<<<<<<< HEAD
     public float getSoundLength() {
         return soundLength;
     }
@@ -81,6 +108,10 @@ public class TlkString {
     
     void writeText(KotorDataOutput out) {
         out.writeString(text.toCharArray());
+=======
+    void write(BufferedWriter writer) throws IOException {
+    
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
     }
     
     @Override

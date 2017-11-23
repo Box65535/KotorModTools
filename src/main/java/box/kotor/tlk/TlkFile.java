@@ -1,5 +1,6 @@
 package box.kotor.tlk;
 
+<<<<<<< HEAD
 import box.kotor.io.KotorDataInput;
 import box.kotor.io.KotorDataOutput;
 import box.kotor.io.KotorFile;
@@ -56,6 +57,38 @@ public class TlkFile implements KotorFile, Iterable<TlkString> {
             string.writeText(out);
         
         return out.toByteArray();
+=======
+import java.io.*;
+import java.util.*;
+
+public class TlkFile implements Iterable<TlkString> {
+    
+    private final String path;
+    private final List<TlkString> strings = new ArrayList<>();
+    private final Map<TlkString, Integer> indeces = new HashMap<>();
+    
+    public TlkFile(String path) {
+        this.path = path;
+    }
+    
+    public void read() throws IOException {
+        
+        strings.clear();
+        indeces.clear();
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            TlkString string = new TlkString(reader);
+            add(string);
+        }
+    }
+    
+    public void write() throws IOException {
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+            for (TlkString string : strings)
+                string.write(writer);
+        }
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
     }
     
     public TlkString get(int index) {
@@ -78,14 +111,21 @@ public class TlkFile implements KotorFile, Iterable<TlkString> {
         return index;
     }
     
+<<<<<<< HEAD
     public TlkString remove(int index) {
+=======
+    public void remove(int index) {
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
         TlkString string = strings.remove(index);
         int newIndex = strings.indexOf(string);
         if (newIndex == -1)
             indeces.remove(string);
         else
             indeces.put(string, newIndex);
+<<<<<<< HEAD
         return string;
+=======
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
     }
     
     public int find(TlkString string) {
@@ -101,6 +141,7 @@ public class TlkFile implements KotorFile, Iterable<TlkString> {
         return strings.size();
     }
     
+<<<<<<< HEAD
     public TlkFile copy() {
         TlkFile copy = new TlkFile();
         for (TlkString string : this)
@@ -108,10 +149,13 @@ public class TlkFile implements KotorFile, Iterable<TlkString> {
         return copy;
     }
     
+=======
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
     @Override
     public Iterator<TlkString> iterator() {
         return new TlkIterator(this);
     }
+<<<<<<< HEAD
     
     @Override
     public boolean equals(Object o) {
@@ -130,4 +174,6 @@ public class TlkFile implements KotorFile, Iterable<TlkString> {
         result = 31 * result + indeces.hashCode();
         return result;
     }
+=======
+>>>>>>> e0a09231aa11e5536345d4dc431caf7db42af8ab
 }
